@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase & Stock - Supermarket</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+    body {
+      background:#0d1117; /* black background */
+      min-height:100vh; display:flex; flex-direction:column;
+      color:#fff;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #0d47a1, #00bfff); /* dark blue → sky blue */
+      color:#fff; padding:20px;
+      text-align:center; font-size:1.6rem;
+      font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* Reports Button */
+    .reports-button {
+      display:inline-block;
+      background:#00bfff; /* sky blue */
+      color:#fff;
+      padding:12px 25px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:1rem;
+      box-shadow:0 4px 10px rgba(0,0,0,0.4);
+      transition:0.3s;
+      margin:20px auto;
+    }
+    .reports-button:hover {
+      transform:translateY(-3px);
+      box-shadow:0 6px 15px rgba(0,0,0,0.6);
+      background:#0288d1; /* darker blue on hover */
+    }
+
+    /* Container */
+    .container {
+      flex:1;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+      padding:30px;
+    }
+
+    /* Card style */
+    .card {
+      background:#161b22; /* dark card */
+      border-radius:15px;
+      padding:25px; text-align:center;
+      box-shadow:0 6px 15px rgba(0,0,0,0.5);
+      transition:0.3s; cursor:pointer;
+      text-decoration:none; color:#fff;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .card:hover {
+      transform:translateY(-8px) scale(1.03);
+      box-shadow:0 10px 25px rgba(0,0,0,0.7);
+      background:#1f2937; /* little brighter on hover */
+    }
+    .card h2 {
+      margin-bottom:10px; color:#00bfff; /* sky blue titles */
+    }
+    .card p {color:#bbb; font-size:0.95rem;}
+
+    /* Icon colors */
+    .icon {font-size:2.5rem; margin-bottom:15px;}
+    .add {color:#00bfff;}     /* sky blue */
+    .supplier {color:#ffb300;}/* yellow-orange */
+    .stock {color:#4caf50;}   /* green */
+    .alert {color:#e91e63;}   /* pink */
+
+    /* Responsive */
+    @media (max-width:600px) {
+      .container {grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    📦 Purchase & Stock Management
+  </div>
+
+  <!-- Separate Reports Button -->
+  <div style="text-align:center;">
+    <a href="Report.html" class="reports-button">📑 Reports</a>  </style>
+    </style>
+</head>
+<body>
+
+
+  
+
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="container">
+    <!-- Add Purchase -->
+    <a href="add-purchase.html" class="card">
+      <div class="icon add">➕</div>
+      <h2>Add Purchase</h2>
+      <p>Record new purchases and update your stock instantly.</p>
+    </a>
+
+    <!-- Supplier List -->
+    <a href="suppliers.html" class="card">
+      <div class="icon supplier">📋</div>
+      <h2>Supplier List</h2>
+      <p>View and manage all your suppliers in one place.</p>
+    </a>
+
+    <!-- Stock Overview -->
+    <a href="stock-overview.html" class="card">
+      <div class="icon stock">📊</div>
+      <h2>Stock Overview</h2>
+      <p>Track available products and total inventory levels.</p>
+    </a>
+
+    <!-- Low Stock Alerts -->
+    <a href="low-stock.html" class="card">
+      <div class="icon alert">⚠</div>
+      <h2>Low Stock Alerts</h2>
+      <p>Get notified when stock levels drop below minimum.</p>
+    </a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplier List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5faff;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #007acc;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .add-supplier {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .add-supplier button {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .add-supplier button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h2>Supplier List</h2>
+
+  <div class="add-supplier">
+    <button onclick="openForm()">➕ Add New Supplier</button>
+  </div>
+
+  <table>
+    <tr>
+      <th>Supplier Name</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+    <tr><td>ABC Traders</td><td>9876543210</td><td>abc@gmail.com</td><td>Chennai</td></tr>
+    <tr><td>XYZ Wholesales</td><td>9123456780</td><td>xyz@gmail.com</td><td>Coimbatore</td></tr>
+    <tr><td>Sri Lakshmi Suppliers</td><td>9845012345</td><td>lakshmi@gmail.com</td><td>Madurai</td></tr>
+    <tr><td>Kumar & Sons</td><td>9753124680</td><td>kumarsons@gmail.com</td><td>Trichy</td></tr>
+    <tr><td>Royal Distributors</td><td>9000011122</td><td>royal@gmail.com</td><td>Salem</td></tr>
+    <tr><td>Fresh Agro</td><td>9445566778</td><td>freshagro@gmail.com</td><td>Tirunelveli</td></tr>
+    <tr><td>Green Farms</td><td>9887654321</td><td>greenfarms@gmail.com</td><td>Vellore</td></tr>
+    <tr><td>City Mart Suppliers</td><td>9234567810</td><td>citymart@gmail.com</td><td>Chennai</td></tr>
+    <tr><td>Vijay Distributors</td><td>9345678921</td><td>vijay@gmail.com</td><td>Madurai</td></tr>
+    <tr><td>Star Traders</td><td>9456789012</td><td>star@gmail.com</td><td>Thanjavur</td></tr>
+    <tr><td>Sri Balaji Suppliers</td><td>9345012345</td><td>balaji@gmail.com</td><td>Kanchipuram</td></tr>
+    <tr><td>Elite Distributors</td><td>9012345678</td><td>elite@gmail.com</td><td>Chennai</td></tr>
+    <tr><td>Vivek Agencies</td><td>9234098765</td><td>vivek@gmail.com</td><td>Salem</td></tr>
+    <tr><td>Sunshine Traders</td><td>9345678001</td><td>sunshine@gmail.com</td><td>Madurai</td></tr>
+    <tr><td>Global Supplies</td><td>9123456700</td><td>global@gmail.com</td><td>Coimbatore</td></tr>
+    <tr><td>Goodwill Suppliers</td><td>9555123456</td><td>goodwill@gmail.com</td><td>Erode</td></tr>
+    <tr><td>Victory Traders</td><td>9654781234</td><td>victory@gmail.com</td><td>Chennai</td></tr>
+    <tr><td>Prime Distributors</td><td>9765432109</td><td>prime@gmail.com</td><td>Trichy</td></tr>
+    <tr><td>Evergreen Supplies</td><td>9456012345</td><td>evergreen@gmail.com</td><td>Nagercoil</td></tr>
+    <tr><td>Speedy Suppliers</td><td>9345609876</td><td>speedy@gmail.com</td><td>Tuticorin</td></tr>
+  </table>
+
+  <script>
+    function openForm() {
+      alert("Form open panna vendiyathu — next step la naan add pannuren 🙂");
+    }
+  </script>
+</body>
+</html>

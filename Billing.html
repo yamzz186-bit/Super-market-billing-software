@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Billing & Sales - Supermarket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+    body { display:flex; min-height:100vh; background:#121212; color:#e0e0e0; } /* Dark background */
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #0d47a1; /* Dark Blue */
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar h2 {
+      margin-bottom: 1.5rem;
+    }
+    .sidebar ul {
+      list-style: none;
+      width: 100%;
+    }
+    .sidebar ul li {
+      margin: 12px 0;
+    }
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+    .header {
+      background: #1565c0; /* Medium Blue */
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.6rem;
+    }
+
+    /* Content Split */
+    .content {
+      display: flex;
+      gap: 20px;
+    }
+    .left, .right {
+      flex: 1;
+      background: #1e1e1e; /* Dark card */
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      border: 1px solid #333;
+    }
+
+    /* Form */
+    form {
+      display: grid;
+      gap: 15px;
+    }
+    label {
+      font-weight: 600;
+      color: #64b5f6; /* Light Blue */
+    }
+    input, select {
+      padding: 10px;
+      border: 1px solid #1565c0;
+      border-radius: 6px;
+      width: 100%;
+      background: #2a2a2a;
+      color: #fff;
+    }
+    input:focus, select:focus {
+      outline: 2px solid #42a5f5;
+    }
+    button {
+      background: #1565c0; /* Blue button */
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #1e88e5;
+    }
+
+    /* Table */
+    h2 {
+      margin-bottom: 10px;
+      color: #42a5f5;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+      text-align: left;
+    }
+    th {
+      background: #0d47a1;
+      color: #fff;
+    }
+    td {
+      color: #e0e0e0;
+    }
+
+    /* Summary Box */
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      border: 1px solid #1565c0;
+    }
+    .summary h3 {
+      margin-bottom: 10px;
+      color: #42a5f5;
+    }
+    .summary p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>💰 Billing</h2>
+    <ul>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Customers.html">Customers</a></li>
+      <li><a href="Quotations.html">Quotations</a></li>
+      <li><a href="Billing.html" class="active">Billing</a></li>
+      <li><a href="Stock.html">Stock</a></li>
+      <li><a href="Reports.html">Reports</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="header">
+      <h1>Billing & Sales</h1>
+    </div>
+
+    <div class="content">
+      <!-- Left: New Bill Form -->
+      <div class="left">
+        <h2>🧾 Create New Bill</h2>
+        <form>
+          <label>Customer Name:</label>
+          <input type="text" placeholder="Enter customer name" required>
+          <label>Product:</label>
+          <select required>
+            <option value="">-- Select Product --</option>
+            <option>Rice (5kg)</option>
+            <option>Wheat Flour (1kg)</option>
+            <option>Sugar (1kg)</option>
+            <option>Milk (1L)</option>
+            <option>Oil (1L)</option>
+          </select>
+          <label>Quantity:</label>
+          <input type="number" min="1" placeholder="Enter quantity">
+          <label>Price (₹):</label>
+          <input type="number" placeholder="Enter price">
+          <button type="submit">Generate Bill</button>
+        </form>
+      </div>
+
+      <!-- Right: Bills & Summary -->
+      <div class="right">
+        <h2>📑 Recent Bills</h2>
+        <table>
+          <tr><th>Bill No</th><th>Customer</th><th>Date</th><th>Amount</th></tr>
+          <tr><td>#201</td><td>Arun</td><td>Aug 18</td><td>₹1200</td></tr>
+          <tr><td>#202</td><td>Priya</td><td>Aug 18</td><td>₹850</td></tr>
+          <tr><td>#203</td><td>Karthik</td><td>Aug 19</td><td>₹2150</td></tr>
+          <tr><td>#204</td><td>Divya</td><td>Aug 20</td><td>₹640</td></tr>
+        </table>
+
+        <div class="summary">
+          <h3>📊 Sales Summary</h3>
+          <p>Total Bills Today: <b>12</b></p>
+          <p>Total Sales: <b>₹15,460</b></p>
+          <p>Best Seller: <b>Rice (5kg)</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

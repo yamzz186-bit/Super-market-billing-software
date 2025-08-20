@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Overview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5faff;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #007acc;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .add-stock {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .add-stock button {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .add-stock button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h2>Stock Overview</h2>
+
+  <div class="add-stock">
+    <button onclick="openForm()">➕ Add New Stock</button>
+  </div>
+
+  <table>
+    <tr>
+      <th>Item Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Total Value</th>
+    </tr>
+    <tr><td>Rice</td><td>Grocery</td><td>250 Kg</td><td>₹55</td><td>₹13,750</td></tr>
+    <tr><td>Sugar</td><td>Grocery</td><td>180 Kg</td><td>₹42</td><td>₹7,560</td></tr>
+    <tr><td>Sunflower Oil</td><td>Edible Oil</td><td>120 L</td><td>₹150</td><td>₹18,000</td></tr>
+    <tr><td>Milk</td><td>Dairy</td><td>90 L</td><td>₹48</td><td>₹4,320</td></tr>
+    <tr><td>Bread</td><td>Bakery</td><td>200 Packets</td><td>₹25</td><td>₹5,000</td></tr>
+    <tr><td>Eggs</td><td>Poultry</td><td>500 Nos</td><td>₹6</td><td>₹3,000</td></tr>
+    <tr><td>Apples</td><td>Fruits</td><td>75 Kg</td><td>₹120</td><td>₹9,000</td></tr>
+    <tr><td>Bananas</td><td>Fruits</td><td>150 Kg</td><td>₹40</td><td>₹6,000</td></tr>
+    <tr><td>Potatoes</td><td>Vegetables</td><td>200 Kg</td><td>₹30</td><td>₹6,000</td></tr>
+    <tr><td>Tomatoes</td><td>Vegetables</td><td>100 Kg</td><td>₹35</td><td>₹3,500</td></tr>
+    <tr><td>Onions</td><td>Vegetables</td><td>150 Kg</td><td>₹28</td><td>₹4,200</td></tr>
+    <tr><td>Carrots</td><td>Vegetables</td><td>80 Kg</td><td>₹45</td><td>₹3,600</td></tr>
+    <tr><td>Chicken</td><td>Meat</td><td>60 Kg</td><td>₹200</td><td>₹12,000</td></tr>
+    <tr><td>Mutton</td><td>Meat</td><td>40 Kg</td><td>₹600</td><td>₹24,000</td></tr>
+    <tr><td>Fish</td><td>Seafood</td><td>70 Kg</td><td>₹300</td><td>₹21,000</td></tr>
+    <tr><td>Shrimp</td><td>Seafood</td><td>50 Kg</td><td>₹400</td><td>₹20,000</td></tr>
+    <tr><td>Cheese</td><td>Dairy</td><td>40 Kg</td><td>₹450</td><td>₹18,000</td></tr>
+    <tr><td>Butter</td><td>Dairy</td><td>35 Kg</td><td>₹380</td><td>₹13,300</td></tr>
+    <tr><td>Coffee</td><td>Beverages</td><td>90 Kg</td><td>₹220</td><td>₹19,800</td></tr>
+    <tr><td>Tea</td><td>Beverages</td><td>100 Kg</td><td>₹180</td><td>₹18,000</td></tr>
+    <tr><td>Soft Drinks</td><td>Beverages</td><td>250 Bottles</td><td>₹35</td><td>₹8,750</td></tr>
+  </table>
+
+  <script>
+    function openForm() {
+      alert("Form open panna vendiyathu — next step la naan add pannuren 🙂");
+    }
+  </script>
+</body>
+</html>

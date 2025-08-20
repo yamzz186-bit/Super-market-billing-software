@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --light-gray: #bdc3c7;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 250px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 i {
+            background: var(--accent);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0 15px;
+        }
+
+        .menu-item {
+            margin-bottom: 5px;
+        }
+
+        .menu-item a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item a:hover, .menu-item a.active {
+            background: var(--secondary);
+        }
+
+        .menu-item a i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            grid-column: 2;
+            padding: 20px 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome h2 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .welcome p {
+            color: var(--gray);
+        }
+
+        .search-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search {
+            position: relative;
+        }
+
+        .search input {
+            padding: 10px 15px 10px 40px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            width: 250px;
+            font-size: 14px;
+        }
+
+        .search i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            color: var(--gray);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .sales .card-icon {
+            background: var(--accent);
+        }
+
+        .customers .card-icon {
+            background: var(--success);
+        }
+
+        .stock .card-icon {
+            background: var(--warning);
+        }
+
+        .quotations .card-icon {
+            background: var(--danger);
+        }
+
+        .card-value {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Dashboard Sections */
+        .dashboard-sections {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--dark);
+        }
+
+        .view-all {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* Weekly Sales Chart */
+        .chart-container {
+            height: 200px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .chart-bar {
+            position: absolute;
+            bottom: 0;
+            width: 30px;
+            border-radius: 5px 5px 0 0;
+            background: var(--accent);
+        }
+
+        .chart-day {
+            position: absolute;
+            bottom: -25px;
+            font-size: 12px;
+            text-align: center;
+            width: 30px;
+        }
+
+        /* Lists */
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-list li:last-child {
+            border-bottom: none;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-low {
+            background: #ffcccc;
+            color: #d10000;
+        }
+
+        /* Customer Page */
+        .customer-page {
+            display: none;
+        }
+
+        .customer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--secondary);
+        }
+
+        .customer-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .customer-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .customer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .customer-table th, .customer-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .customer-table th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        .customer-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status-active {
+            background: #e6f7ee;
+            color: #00a65a;
+        }
+
+        .status-inactive {
+            background: #ffe6e6;
+            color: #ff4d4d;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-submit {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            
+            .main-content {
+                grid-column: 1;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .dashboard-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .search input {
+                width: 100%;
+            }
+            
+            .search-profile {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-store"></i> Supermarket</h1>
+            </div>
+            
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+                </li>
+                <li class="menu-item">
+                    <a href="Customers.html"><i class="fas fa-users"></i> Customers</a>
+                </li>
+                <li class="menu-item">
+                    <a href="Quotations.html"><i class="fas fa-file-invoice"></i> Quotations</a>
+                </li>
+                <li class="menu-item">
+                    <a href="Billing.html"><i class="fas fa-cash-register"></i> Billing & Sales</a>
+                </li>
+                <li class="menu-item">
+                    <a href="Stock.html"><i class="fas fa-boxes"></i> Purchase & Stock</a>
+                </li>
+                <li class="menu-item">
+                    <a href=" Report.html"><i class="fas fa-chart-bar"></i> Reports</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div class="dashboard-view">
+                <div class="header">
+                    <div class="welcome">
+                        <h2>Supermarket Dashboard</h2>
+                        <p>Manage your supermarket operations efficiently</p>
+                    </div>
+                    
+                    <div class="search-profile">
+                        <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search...">
+                        </div>
+                        
+                        <div class="profile">
+                            <div class="profile-img">AM</div>
+                            <div class="profile-info">
+                                <div class="profile-name">Admin Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Cards -->
+                <div class="dashboard-cards">
+                    <div class="card sales">
+                        <div class="card-header">
+                            <div class="card-title">Today's Sales</div>
+                            <div class="card-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">$8,500</div>
+                        <div class="card-desc">Monthly Sales: $45,000</div>
+                    </div>
+                    
+                    <div class="card customers" id="customers-card">
+                        <div class="card-header">
+                            <div class="card-title">Total Customers</div>
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">120</div>
+                        <div class="card-desc">Active customers</div>
+                    </div>
+                    
+                    <div class="card stock">
+                        <div class="card-header">
+                            <div class="card-title">Stock Alerts</div>
+                            <div class="card-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">8 Items</div>
+                        <div class="card-desc">Low stock items</div>
+                    </div>
+                    
+                    <div class="card quotations">
+                        <div class="card-header">
+                            <div class="card-title">Open Quotations</div>
+                            <div class="card-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">2</div>
+                        <div class="card-desc">Quote #1023, #1024</div>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Sections -->
+                <div class="dashboard-sections">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Weekly Sales -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h3 class="section-title">Weekly Sales</h3>
+                                <a href="#" class="view-all">View Report</a>
+                            </div>
+                            <div class="chart-container">
+                                <div style="left: 20px; height: 120px;" class="chart-bar"></div>
+                                <div style="left: 60px; height: 160px;" class="chart-bar"></div>
+                                <div style="left: 100px; height: 80px;" class="chart-bar"></div>
+                                <div style="left: 140px; height: 190px;" class="chart-bar"></div>
+                                <div style="left: 180px; height: 140px;" class="chart-bar"></div>
+                                <div style="left: 220px; height: 100px;" class="chart-bar"></div>
+                                <div style="left: 260px; height: 170px;" class="chart-bar"></div>
+                                
+                                <div style="left: 20px;" class="chart-day">Mon</div>
+                                <div style="left: 60px;" class="chart-day">Tue</div>
+                                <div style="left: 100px;" class="chart-day">Wed</div>
+                                <div style="left: 140px;" class="chart-day">Thu</div>
+                                <div style="left: 180px;" class="chart-day">Fri</div>
+                                <div style="left: 220px;" class="chart-day">Sat</div>
+                                <div style="left: 260px;" class="chart-day">Sun</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Low Stock Items -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h3 class="section-title">Low Stock Items</h3>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            <ul class="item-list">
+                                <li>
+                                    <span>Milk</span>
+                                    <span class="status status-low">5 left</span>
+                                </li>
+                                <li>
+                                    <span>Bread</span>
+                                    <span class="status status-low">3 left</span>
+                                </li>
+                                <li>
+                                    <span>Sugar</span>
+                                    <span class="status status-low">2 left</span>
+                                </li>

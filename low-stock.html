@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Low Stock Alerts – Supermarket</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5faff;
+    margin: 0;
+    padding: 20px;
+  }
+  h2 {
+    text-align: center;
+    color: #007acc;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  th {
+    background-color: #007acc;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .alert {
+    background-color: #ffcccc;
+  }
+  .low {
+    background-color: #fff5cc;
+  }
+  .normal {}
+</style>
+</head>
+<body>
+  <h2>Low Stock Alerts</h2>
+  <table>
+    <tr>
+      <th>Item Name</th><th>Category</th><th>Quantity</th><th>Safety Level</th><th>Status</th>
+    </tr>
+    <!-- Alert Items -->
+    <tr class="alert"><td>Rice</td><td>Grocery</td><td>20 Kg</td><td>50 Kg</td><td>Low Stock</td></tr>
+    <tr class="alert"><td>Milk</td><td>Dairy</td><td>10 L</td><td>30 L</td><td>Low Stock</td></tr>
+    <tr class="alert"><td>Eggs</td><td>Poultry</td><td>30 Nos</td><td>100 Nos</td><td>Low Stock</td></tr>
+    <tr class="low"><td>Sugar</td><td>Grocery</td><td>180 Kg</td><td>200 Kg</td><td>Near Safety</td></tr>
+    <tr class="low"><td>Cheese</td><td>Dairy</td><td>45 Kg</td><td>50 Kg</td><td>Near Safety</td></tr>
+    <!-- Normal Items -->
+    <tr><td>Sunflower Oil</td><td>Edible Oil</td><td>120 L</td><td>50 L</td><td>OK</td></tr>
+    <tr><td>Bread</td><td>Bakery</td><td>200 Packets</td><td>100</td><td>OK</td></tr>
+    <tr><td>Apples</td><td>Fruits</td><td>75 Kg</td><td>50 Kg</td><td>OK</td></tr>
+    <tr><td>Potatoes</td><td>Vegetables</td><td>200 Kg</td><td>150 Kg</td><td>OK</td></tr>
+    <tr><td>Chicken</td><td>Meat</td><td>60 Kg</td><td>40 Kg</td><td>OK</td></tr>
+    <tr class="alert"><td>Tomatoes</td><td>Vegetables</td><td>15 Kg</td><td>50 Kg</td><td>Low Stock</td></tr>
+    <tr class="low"><td>Fish</td><td>Seafood</td><td>50 Kg</td><td>70 Kg</td><td>Near Safety</td></tr>
+    <tr><td>Tea</td><td>Beverages</td><td>120 Kg</td><td>100 Kg</td><td>OK</td></tr>
+    <tr><td>Coffee</td><td>Beverages</td><td>100 Kg</td><td>80 Kg</td><td>OK</td></tr>
+    <tr class="alert"><td>Bananas</td><td>Fruits</td><td>20 Kg</td><td>80 Kg</td><td>Low Stock</td></tr>
+    <tr class="low"><td>Onions</td><td>Vegetables</td><td>140 Kg</td><td>150 Kg</td><td>Near Safety</td></tr>
+    <tr><td>Butter</td><td>Dairy</td><td>50 Kg</td><td>40 Kg</td><td>OK</td></tr>
+    <tr class="alert"><td>Shrimp</td><td>Seafood</td><td>10 Kg</td><td>30 Kg</td><td>Low Stock</td></tr>
+    <tr class="low"><td>Mutton</td><td>Meat</td><td>45 Kg</td><td>50 Kg</td><td>Near Safety</td></tr>
+    <tr><td>Soft Drinks</td><td>Beverages</td><td>200 Bottles</td><td>150</td><td>OK</td></tr>
+  </table>
+</body>
+</html>

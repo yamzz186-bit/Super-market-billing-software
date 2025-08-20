@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotations - Supermarket Billing</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+    body { display:flex; min-height:100vh; background:#121212; color:#fff; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: linear-gradient(135deg, #0a2a43, #1190cb);
+      color: #fff;
+      padding: 20px;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+    }
+    .sidebar h2 { margin-bottom: 1.5rem; }
+    .sidebar ul { list-style:none; width:100%; }
+    .sidebar ul li { margin:12px 0; }
+    .sidebar ul li a {
+      color:#fff; text-decoration:none; display:block; padding:10px 15px;
+      border-radius:8px; transition:0.3s;
+    }
+    .sidebar ul li a:hover { background:rgba(255,255,255,0.15); }
+
+    /* Main */
+    .main { flex:1; padding:20px; }
+    .header {
+      background: linear-gradient(135deg, #0a2a43, #1190cb);
+      color:#fff; padding:15px 20px; border-radius:10px; margin-bottom:20px;
+    }
+    .header h1 { font-size:1.6rem; }
+
+    /* Tabs */
+    .tabs { display:flex; gap:10px; margin-bottom:20px; }
+    .tabs button {
+      padding:10px 15px; border:none; border-radius:6px; cursor:pointer;
+      font-weight:bold; background:#1e1e1e; transition:0.3s; color:#1190cb;
+    }
+    .tabs button.active, .tabs button:hover {
+      background: linear-gradient(135deg, #0a2a43, #1190cb); color:#fff;
+    }
+
+    /* Sections */
+    .section { display:none; background:#1e1e1e; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.4); }
+    .section.active { display:block; }
+
+    /* Form */
+    form { display:grid; gap:15px; max-width:450px; }
+    label { font-weight:600; color:#ddd; }
+    input, textarea, select {
+      padding:10px; border:1px solid #444; border-radius:6px; width:100%;
+      background:#2a2a2a; color:#fff;
+    }
+    button.submit {
+      background: linear-gradient(135deg, #0a2a43, #1190cb);
+      color:#fff; border:none; padding:12px; border-radius:8px;
+      cursor:pointer; font-weight:bold; transition:0.3s;
+    }
+    button.submit:hover { opacity:0.9; }
+
+    /* Table */
+    table { width:100%; border-collapse:collapse; margin-top:10px; }
+    table th, table td {
+      padding:10px; text-align:left; border-bottom:1px solid #333;
+    }
+    table th { background:#0a2a43; color:#fff; }
+    table tr:nth-child(even) { background:#1c1c1c; }
+    table tr:nth-child(odd) { background:#242424; }
+
+    /* Scrollable table */
+    .table-container {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #333;
+      border-radius: 8px;
+      margin-top:10px;
+    }
+    .table-container::-webkit-scrollbar { width: 8px; }
+    .table-container::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
+    .table-container::-webkit-scrollbar-thumb { background: #1190cb; border-radius: 10px; }
+    .table-container::-webkit-scrollbar-thumb:hover { background: #2575fc; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>📑 Quotations</h2>
+    <ul>
+       <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Customers.html">Customers</a></li>
+      <li><a href="Quotations.html">Quotations</a></li>
+      <li><a href="Billing.html">Billing</a></li>
+      <li><a href="Stock.html">Stock</a></li>
+      <li><a href="Reports.html">Reports</a></li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h1>Manage Quotations</h1>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showSection('create')">➕ Create Quotation</button>
+      <button class="tab-btn" onclick="showSection('view')">📋 View Quotations</button>
+      <button class="tab-btn" onclick="showSection('history')">📜 Quotation History</button>
+    </div>
+
+    <!-- Create Quotation -->
+    <div id="create" class="section active">
+      <h2>Create New Quotation</h2>
+      <form>
+        <label>Customer Name:</label>
+        <input type="text" placeholder="Enter customer name" required>
+        
+        <label>Product:</label>
+        <input type="text" placeholder="Enter product name" required>
+        
+        <label>Quantity:</label>
+        <input type="number" placeholder="Enter quantity" required>
+        
+        <label>Rate (₹):</label>
+        <input type="number" placeholder="Enter price per unit" required>
+        
+        <label>Notes:</label>
+        <textarea rows="3" placeholder="Optional notes"></textarea>
+        
+        <button type="submit" class="submit">Save Quotation</button>
+      </form>
+    </div>
+
+    <!-- View Quotations -->
+    <div id="view" class="section">
+      <h2>Quotation List</h2>
+      <div class="table-container">
+        <table>
+          <tr><th>ID</th><th>Customer</th><th>Product</th><th>Qty</th><th>Rate</th><th>Total</th></tr>
+          <tr><td>#Q001</td><td>Arun</td><td>Rice</td><td>50kg</td><td>₹45</td><td>₹2250</td></tr>
+          <tr><td>#Q002</td><td>Priya</td><td>Sugar</td><td>20kg</td><td>₹40</td><td>₹800</td></tr>
+          <tr><td>#Q003</td><td>Karthik</td><td>Soft Drinks</td><td>100</td><td>₹30</td><td>₹3000</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quotation History -->
+    <div id="history" class="section">
+      <h2>Quotation History</h2>
+      <div class="table-container">
+        <table>
+          <tr><th>ID</th><th>Customer</th><th>Date</th><th>Status</th><th>Total</th></tr>
+          <tr><td>#Q001</td><td>Arun</td><td>Aug 18</td><td>Approved</td><td>₹2250</td></tr>
+          <tr><td>#Q002</td><td>Priya</td><td>Aug 19</td><td>Pending</td><td>₹800</td></tr>
+          <tr><td>#Q003</td><td>Karthik</td><td>Aug 20</td><td>Approved</td><td>₹3000</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS for tab switching -->
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

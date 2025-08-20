@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports - Supermarket</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+    body {
+      background:linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:40px;
+      color:#fff;
+    }
+
+    h1 {
+      color:#00c6ff;
+      margin-bottom:30px;
+      text-align:center;
+      font-size:2rem;
+      text-shadow:0 3px 10px rgba(0,0,0,0.6);
+    }
+    
+    /* Reports list */
+    .reports-list {
+      list-style-type:none;
+      width:100%;
+      max-width:500px;
+      background:#111;
+      padding:25px 30px;
+      border-radius:15px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.6);
+    }
+    .reports-list li {
+      padding:15px 18px;
+      margin:10px 0;
+      border-radius:10px;
+      font-size:1.1rem;
+      background:linear-gradient(90deg, #00c6ff, #0072ff);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .reports-list li:hover {
+      transform:translateX(10px);
+      box-shadow:0 6px 15px rgba(0,0,0,0.6);
+    }
+    .reports-list li::before {
+      content:"📊";
+      margin-right:12px;
+    }
+
+    /* Home button */
+    .home-button {
+      margin-top:30px;
+      background:linear-gradient(90deg, #0072ff, #00c6ff);
+      color:#fff;
+      padding:12px 28px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:1rem;
+      box-shadow:0 6px 18px rgba(0,0,0,0.5);
+      transition:0.3s;
+    }
+    .home-button:hover {
+      transform:scale(1.05);
+      box-shadow:0 8px 20px rgba(0,0,0,0.7);
+    }
+
+    /* Responsive */
+    @media (max-width:500px) {
+      .reports-list {padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📑 Reports</h1>
+
+  <ul class="reports-list">
+  <li><a href="sales-report.html">Sales Reports</a></li>
+  <li><a href="purchase-report.html">Purchase Reports</a></li>
+  <li><a href="quotation-report.html">Quotation Reports</a></li>
+  <li><a href="stock-report.html">Stock Reports</a></li>
+  <li><a href="customer-report.html">Customer Reports</a></li>
+  <li><a href="supplier-report.html">Supplier Reports</a></li>
+  </ul>
+
+  <a href="Dashboard.html" class="home-button">🏠 Go to Home</a>
+  
+
+</body>
+</html>

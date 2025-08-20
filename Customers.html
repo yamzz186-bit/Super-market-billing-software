@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers - Supermarket Billing</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+    body { display:flex; min-height:100vh; background:#121212; color:#fff; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: #000; /* pure black */
+      color: #fff;
+      padding: 20px;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+    }
+    .sidebar h2 { margin-bottom: 1.5rem; color:#00c6ff; }
+    .sidebar ul { list-style:none; width:100%; }
+    .sidebar ul li { margin:12px 0; }
+    .sidebar ul li a {
+      color:#fff; text-decoration:none; display:block; padding:10px 15px;
+      border-radius:8px; transition:0.3s;
+    }
+    .sidebar ul li a:hover { background: linear-gradient(135deg,#00c6ff,#0072ff); }
+
+    /* Main */
+    .main { flex:1; padding:20px; background:#1e1e1e; }
+    .header {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color:#fff; padding:15px 20px; border-radius:10px; margin-bottom:20px;
+    }
+    .header h1 { font-size:1.6rem; }
+
+    /* Tabs */
+    .tabs { display:flex; gap:10px; margin-bottom:20px; }
+    .tabs button {
+      padding:10px 15px; border:none; border-radius:6px; cursor:pointer;
+      font-weight:bold; background:#333; color:#fff; transition:0.3s;
+    }
+    .tabs button.active, .tabs button:hover {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color:#fff;
+    }
+
+    /* Sections */
+    .section { display:none; background:#2b2b2b; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.5); }
+    .section.active { display:block; }
+
+    /* Form */
+    form { display:grid; gap:15px; max-width:400px; }
+    label { font-weight:600; }
+    input, textarea {
+      padding:10px; border:1px solid #444; border-radius:6px; width:100%; background:#121212; color:#fff;
+    }
+    button.submit {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color:#fff; border:none; padding:12px; border-radius:8px;
+      cursor:pointer; font-weight:bold; transition:0.3s;
+    }
+    button.submit:hover { opacity:0.9; }
+
+    /* Table */
+    table { width:100%; border-collapse:collapse; margin-top:10px; color:#fff; }
+    table th, table td {
+      padding:10px; text-align:left; border-bottom:1px solid #444;
+    }
+    table th { background:#0072ff; color:#fff; }
+
+    /* Scrollable table */
+    .table-container {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #444;
+      border-radius: 8px;
+      margin-top:10px;
+    }
+    .table-container::-webkit-scrollbar { width: 8px; }
+    .table-container::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 10px; }
+    .table-container::-webkit-scrollbar-thumb { background: #0072ff; border-radius: 10px; }
+    .table-container::-webkit-scrollbar-thumb:hover { background: #00c6ff; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>📋 Customers</h2>
+    <ul>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Customers.html">Customers</a></li>
+      <li><a href="Quotations.html">Quotations</a></li>
+      <li><a href="Billing.html">Billing</a></li>
+      <li><a href="Stock.html">Stock</a></li>
+      <li><a href="Reports.html">Reports</a></li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h1>Manage Customers</h1>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showSection('add')">➕ Add Customer</button>
+      <button class="tab-btn" onclick="showSection('view')">👥 View Customers</button>
+      <button class="tab-btn" onclick="showSection('history')">📜 Customer History</button>
+    </div>
+
+    <!-- Add Customer -->
+    <div id="add" class="section active">
+      <h2>Add New Customer</h2>
+      <form>
+        <label>Name:</label>
+        <input type="text" placeholder="Enter customer name" required>
+        <label>Phone:</label>
+        <input type="tel" placeholder="Enter phone number" required>
+        <label>Email:</label>
+        <input type="email" placeholder="Enter email">
+        <label>Address:</label>
+        <textarea rows="3" placeholder="Enter address"></textarea>
+        <button type="submit" class="submit">Save Customer</button>
+      </form>
+    </div>
+
+    <!-- View Customers -->
+    <div id="view" class="section">
+      <h2>Customer List</h2>
+      <div class="table-container">
+        <table>
+          <tr><th>Name</th><th>Phone</th><th>Email</th><th>Address</th></tr>
+          <tr><td>Arun</td><td>9876543210</td><td>arun@mail.com</td><td>Chennai</td></tr>
+          <tr><td>Priya</td><td>9123456780</td><td>priya@mail.com</td><td>Bangalore</td></tr>
+          <tr><td>Karthik</td><td>9001122233</td><td>karthik@mail.com</td><td>Hyderabad</td></tr>
+          <tr><td>Divya</td><td>8080808080</td><td>divya@mail.com</td><td>Delhi</td></tr>
+          <tr><td>Suresh</td><td>9988776655</td><td>suresh@mail.com</td><td>Pune</td></tr>
+          <tr><td>Meena</td><td>9345678912</td><td>meena@mail.com</td><td>Mumbai</td></tr>
+          <tr><td>Vikram</td><td>9445566778</td><td>vikram@mail.com</td><td>Chennai</td></tr>
+          <tr><td>Anitha</td><td>9556677889</td><td>anitha@mail.com</td><td>Bangalore</td></tr>
+          <tr><td>Ravi</td><td>9667788990</td><td>ravi@mail.com</td><td>Kolkata</td></tr>
+          <tr><td>Geetha</td><td>9778899001</td><td>geetha@mail.com</td><td>Trichy</td></tr>
+          <tr><td>Mohan</td><td>9889900112</td><td>mohan@mail.com</td><td>Coimbatore</td></tr>
+          <tr><td>Swathi</td><td>9990011223</td><td>swathi@mail.com</td><td>Kochi</td></tr>
+          <tr><td>Hari</td><td>9011223344</td><td>hari@mail.com</td><td>Madurai</td></tr>
+          <tr><td>Deepa</td><td>9022334455</td><td>deepa@mail.com</td><td>Chennai</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Customer History -->
+    <div id="history" class="section">
+      <h2>Customer Purchase History</h2>
+      <div class="table-container">
+        <table>
+          <tr><th>Customer</th><th>Bill No</th><th>Date</th><th>Amount</th></tr>
+          <tr><td>Arun</td><td>#101</td><td>Aug 18</td><td>₹1200</td></tr>
+          <tr><td>Priya</td><td>#102</td><td>Aug 19</td><td>₹850</td></tr>
+          <tr><td>Karthik</td><td>#103</td><td>Aug 20</td><td>₹2150</td></tr>
+          <tr><td>Divya</td><td>#104</td><td>Aug 20</td><td>₹640</td></tr>
+          <tr><td>Suresh</td><td>#105</td><td>Aug 21</td><td>₹1800</td></tr>
+          <tr><td>Meena</td><td>#106</td><td>Aug 21</td><td>₹3200</td></tr>
+          <tr><td>Vikram</td><td>#107</td><td>Aug 22</td><td>₹950</td></tr>
+          <tr><td>Anitha</td><td>#108</td><td>Aug 22</td><td>₹1450</td></tr>
+          <tr><td>Ravi</td><td>#109</td><td>Aug 23</td><td>₹2750</td></tr>
+          <tr><td>Geetha</td><td>#110</td><td>Aug 23</td><td>₹1100</td></tr>
+          <tr><td>Mohan</td><td>#111</td><td>Aug 24</td><td>₹1650</td></tr>
+          <tr><td>Swathi</td><td>#112</td><td>Aug 24</td><td>₹890</td></tr>
+          <tr><td>Hari</td><td>#113</td><td>Aug 25</td><td>₹2500</td></tr>
+          <tr><td>Deepa</td><td>#114</td><td>Aug 25</td><td>₹1320</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS for tab switching -->
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
