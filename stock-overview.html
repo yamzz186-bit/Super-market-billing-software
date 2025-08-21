@@ -35,12 +35,12 @@
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
-    .add-stock {
+    .add-stock, .back-btn {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
-    .add-stock button {
+    button {
       background-color: #007acc;
       color: white;
       padding: 10px 20px;
@@ -49,8 +49,14 @@
       cursor: pointer;
       font-size: 16px;
     }
-    .add-stock button:hover {
+    button:hover {
       background-color: #005f99;
+    }
+    .back-btn button {
+      background-color: #555;
+    }
+    .back-btn button:hover {
+      background-color: #333;
     }
   </style>
 </head>
@@ -91,6 +97,11 @@
     <tr><td>Tea</td><td>Beverages</td><td>100 Kg</td><td>₹180</td><td>₹18,000</td></tr>
     <tr><td>Soft Drinks</td><td>Beverages</td><td>250 Bottles</td><td>₹35</td><td>₹8,750</td></tr>
   </table>
+
+  <!-- Back Button -->
+  <div class="back-btn">
+    <a href="Stock.html"><button>⬅ Back to Stock</button></a>
+  </div>.
 
   <script>
     function openForm() {

@@ -8,13 +8,41 @@
     * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
     body {
       background:#0d1117; /* black background */
-      min-height:100vh; display:flex; flex-direction:column;
+      min-height:100vh;
+      display:flex; /* sidebar + content in row */
+      width:100%;
       color:#fff;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: linear-gradient(135deg, #0a2a43, #1190cb);
+      color: #fff;
+      padding: 20px;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+    }
+    .sidebar h2 { margin-bottom: 1.5rem; }
+    .sidebar ul { list-style:none; width:100%; }
+    .sidebar ul li { margin:12px 0; }
+    .sidebar ul li a {
+      color:#fff; text-decoration:none; display:block; padding:10px 15px;
+      border-radius:8px; transition:0.3s;
+    }
+    .sidebar ul li a:hover { background:rgba(255,255,255,0.15); }
+
+    /* Main content wrapper */
+    .main {
+      flex:1;
+      display:flex;
+      flex-direction:column;
     }
 
     /* Header */
     .header {
-      background: linear-gradient(135deg, #0d47a1, #00bfff); /* dark blue → sky blue */
+      background: linear-gradient(135deg, #0d47a1, #00bfff); 
       color:#fff; padding:20px;
       text-align:center; font-size:1.6rem;
       font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.4);
@@ -23,7 +51,7 @@
     /* Reports Button */
     .reports-button {
       display:inline-block;
-      background:#00bfff; /* sky blue */
+      background:#00bfff; 
       color:#fff;
       padding:12px 25px;
       border-radius:8px;
@@ -37,7 +65,7 @@
     .reports-button:hover {
       transform:translateY(-3px);
       box-shadow:0 6px 15px rgba(0,0,0,0.6);
-      background:#0288d1; /* darker blue on hover */
+      background:#0288d1;
     }
 
     /* Container */
@@ -51,7 +79,7 @@
 
     /* Card style */
     .card {
-      background:#161b22; /* dark card */
+      background:#161b22;
       border-radius:15px;
       padding:25px; text-align:center;
       box-shadow:0 6px 15px rgba(0,0,0,0.5);
@@ -62,74 +90,77 @@
     .card:hover {
       transform:translateY(-8px) scale(1.03);
       box-shadow:0 10px 25px rgba(0,0,0,0.7);
-      background:#1f2937; /* little brighter on hover */
+      background:#1f2937;
     }
     .card h2 {
-      margin-bottom:10px; color:#00bfff; /* sky blue titles */
+      margin-bottom:10px; color:#00bfff;
     }
     .card p {color:#bbb; font-size:0.95rem;}
 
     /* Icon colors */
     .icon {font-size:2.5rem; margin-bottom:15px;}
-    .add {color:#00bfff;}     /* sky blue */
-    .supplier {color:#ffb300;}/* yellow-orange */
-    .stock {color:#4caf50;}   /* green */
-    .alert {color:#e91e63;}   /* pink */
+    .add {color:#00bfff;}     
+    .supplier {color:#ffb300;}
+    .stock {color:#4caf50;}   
+    .alert {color:#e91e63;}   
 
     /* Responsive */
     @media (max-width:600px) {
+      body {flex-direction:column;}
+      .sidebar {width:100%; flex-direction:row; overflow-x:auto;}
+      .main {width:100%;}
       .container {grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="header">
-    📦 Purchase & Stock Management
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>📑 Stocks</h2>
+    <ul>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Customers.html">Customers</a></li>
+      <li><a href="Quotations.html">Quotations</a></li>
+      <li><a href="Billing.html">Billing</a></li>
+      <li><a href="Stock.html">Stock</a></li>
+      <li><a href="Report.html">Reports</a></li>
+        <li><a href="Login.html">Log out</a></li>
+      
+    </ul>
   </div>
 
-  <!-- Separate Reports Button -->
-  <div style="text-align:center;">
-    <a href="Report.html" class="reports-button">📑 Reports</a>  </style>
-    </style>
-</head>
-<body>
+  <!-- Main Content -->
+  <div class="main">
+    <div class="header">📦 Purchase & Stock Management</div>
 
 
-  
+    <!-- Cards -->
+    <div class="container">
+      <a href="add-purchase.html" class="card">
+        <div class="icon add">➕</div>
+        <h2>Add Purchase</h2>
+        <p>Record new purchases and update your stock instantly.</p>
+      </a>
 
-  </div>
+      <a href="suppliers.html" class="card">
+        <div class="icon supplier">📋</div>
+        <h2>Supplier List</h2>
+        <p>View and manage all your suppliers in one place.</p>
+      </a>
 
-  <!-- Cards Grid -->
-  <div class="container">
-    <!-- Add Purchase -->
-    <a href="add-purchase.html" class="card">
-      <div class="icon add">➕</div>
-      <h2>Add Purchase</h2>
-      <p>Record new purchases and update your stock instantly.</p>
-    </a>
+      <a href="stock-overview.html" class="card">
+        <div class="icon stock">📊</div>
+        <h2>Stock Overview</h2>
+        <p>Track available products and total inventory levels.</p>
+      </a>
 
-    <!-- Supplier List -->
-    <a href="suppliers.html" class="card">
-      <div class="icon supplier">📋</div>
-      <h2>Supplier List</h2>
-      <p>View and manage all your suppliers in one place.</p>
-    </a>
-
-    <!-- Stock Overview -->
-    <a href="stock-overview.html" class="card">
-      <div class="icon stock">📊</div>
-      <h2>Stock Overview</h2>
-      <p>Track available products and total inventory levels.</p>
-    </a>
-
-    <!-- Low Stock Alerts -->
-    <a href="low-stock.html" class="card">
-      <div class="icon alert">⚠</div>
-      <h2>Low Stock Alerts</h2>
-      <p>Get notified when stock levels drop below minimum.</p>
-    </a>
+      <a href="low-stock.html" class="card">
+        <div class="icon alert">⚠</div>
+        <h2>Low Stock Alerts</h2>
+        <p>Get notified when stock levels drop below minimum.</p>
+      </a>
+    </div>
   </div>
 
 </body>

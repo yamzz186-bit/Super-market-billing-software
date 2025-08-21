@@ -2,62 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Supermarket Billing – Login</title>
+  <title>Supermarket Billing</title>
   <style>
-    /* (Keep your existing stylish CSS here) */
-    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
-    body { background: linear-gradient(135deg,#0f172a,#1e293b); color:#fff; display:flex; align-items:center; justify-content:center; height:100vh; }
-    .login-container { background:rgba(255,255,255,0.05); padding:40px; border-radius:15px; box-shadow:0 0 30px rgba(0,150,255,.3); width:400px; text-align:center; }
-    .login-container h2 { font-size:26px; margin-bottom:15px; color:#38bdf8; }
-    .login-container p { font-size:14px; margin-bottom:25px; color:#94a3b8; }
-    .input-group { margin-bottom:20px; text-align:left; }
-    .input-group label { font-size:14px; margin-bottom:5px; display:block; color:#cbd5e1;}
-    .input-group input { width:100%; padding:12px; border:none; border-radius:10px; outline:none;
-      background:#0f172a; color:#fff; box-shadow:inset 0 0 8px rgba(56,189,248,.4); font-size:15px; }
-    .btn { width:100%; padding:12px; border:none; border-radius:10px; font-size:16px; cursor:pointer;
-      background:linear-gradient(90deg,#38bdf8,#0ea5e9); color:#fff; transition:.3s ease; margin-bottom:15px; }
-    .btn:hover { box-shadow:0 0 20px #38bdf8; transform:scale(1.05); }
-    .extra-options { font-size:13px; display:flex; justify-content:space-between; color:#94a3b8; }
-    .extra-options a { text-decoration:none; color:#38bdf8; }
-    .brand { margin-top:20px; font-size:12px; color:#64748b; }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+      width: 350px;
+    }
+
+    h1 { 
+      margin-bottom: 30px;
+      font-size: 28px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    a {
+      text-decoration: none;  /* 🔹 removes underline */
+    }
+
+    .btn {
+      display: block;
+      padding: 14px 0;
+      margin: 15px auto;
+      width: 100%;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border: none;
+      border-radius: 40px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.6);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 198, 255, 0.9);
+    }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>🔹 Supermarket Billing</h2>
-    <p>Sign in to manage billing, stock & reports</p>
-
-    <form id="loginForm">
-      <div class="input-group">
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" required>
-      </div>
-
-      <div class="input-group">
-        <label>Password</label>
-        <input type="password" placeholder="Enter your password" required>
-      </div>
-
-      <button type="submit" class="btn" id="signInBtn">Sign In</button>
-
-      <div class="extra-options">
-        <a href="#">Forgot Password?</a>
-        <a href="#">Sign Up</a>
-      </div>
-    </form>
-
-    <div class="brand">© 2025 Supermarket Billing Software</div>
+  <div class="container">
+    <h1>Supermarket Billing</h1>
+    <a href="home.html"><button class="btn">Admin</button></a>
+    <a href="customer login.html"><button class="btn">Customer</button></a>
   </div>
-
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Stop default form submission
-      // Optional: You can add email/password validation here
-
-      // Redirect user to Dashboard page
-      window.location.href = 'Dashboard.html';
-    });
-  </script>
 </body>
 </html>

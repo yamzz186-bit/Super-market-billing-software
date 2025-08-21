@@ -7,16 +7,42 @@
   <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
     body {
-      background:linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background:#0d1117;
       min-height:100vh;
       display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      padding:40px;
+      width:100%;
       color:#fff;
     }
 
+    /* Sidebar */
+    .sidebar {
+      width:230px;
+      background:linear-gradient(135deg, #0a2a43, #1190cb);
+      color:#fff;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .sidebar h2 {margin-bottom:1.5rem;}
+    .sidebar ul {list-style:none; width:100%;}
+    .sidebar ul li {margin:12px 0;}
+    .sidebar ul li a {
+      color:#fff; text-decoration:none; display:block; padding:10px 15px;
+      border-radius:8px; transition:0.3s;
+    }
+    .sidebar ul li a:hover {background:rgba(255,255,255,0.15);}
+
+    /* Main content */
+    .main {
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px;
+    }
+
+    /* Header */
     h1 {
       color:#00c6ff;
       margin-bottom:30px;
@@ -24,7 +50,7 @@
       font-size:2rem;
       text-shadow:0 3px 10px rgba(0,0,0,0.6);
     }
-    
+
     /* Reports list */
     .reports-list {
       list-style-type:none;
@@ -52,50 +78,51 @@
       transform:translateX(10px);
       box-shadow:0 6px 15px rgba(0,0,0,0.6);
     }
+    .reports-list li a {
+      color:#fff; text-decoration:none; flex:1;
+    }
     .reports-list li::before {
       content:"📊";
       margin-right:12px;
     }
 
-    /* Home button */
-    .home-button {
-      margin-top:30px;
-      background:linear-gradient(90deg, #0072ff, #00c6ff);
-      color:#fff;
-      padding:12px 28px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:1rem;
-      box-shadow:0 6px 18px rgba(0,0,0,0.5);
-      transition:0.3s;
-    }
-    .home-button:hover {
-      transform:scale(1.05);
-      box-shadow:0 8px 20px rgba(0,0,0,0.7);
-    }
-
     /* Responsive */
-    @media (max-width:500px) {
-      .reports-list {padding:20px;}
+    @media (max-width:600px) {
+      body {flex-direction:column;}
+      .sidebar {width:100%; flex-direction:row; overflow-x:auto;}
+      .main {width:100%; padding:20px;}
     }
   </style>
 </head>
 <body>
 
-  <h1>📑 Reports</h1>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>📑 Menu</h2>
+    <ul>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Customers.html">Customers</a></li>
+      <li><a href="Quotations.html">Quotations</a></li>
+      <li><a href="Billing.html">Billing</a></li>
+      <li><a href="Stock.html">Stock</a></li>
+      <li><a href="Report.html">Reports</a></li>
+       <li><a href="Login.html">Log out</a></li>
+    </ul>
+  </div>
 
-  <ul class="reports-list">
-  <li><a href="sales-report.html">Sales Reports</a></li>
-  <li><a href="purchase-report.html">Purchase Reports</a></li>
-  <li><a href="quotation-report.html">Quotation Reports</a></li>
-  <li><a href="stock-report.html">Stock Reports</a></li>
-  <li><a href="customer-report.html">Customer Reports</a></li>
-  <li><a href="supplier-report.html">Supplier Reports</a></li>
-  </ul>
+  <!-- Main Content -->
+  <div class="main">
+    <h1>📑 Reports</h1>
 
-  <a href="Dashboard.html" class="home-button">🏠 Go to Home</a>
-  
+    <ul class="reports-list">
+      <li><a href="sales-report.html">Sales Reports</a></li>
+      <li><a href="purchase-report.html">Purchase Reports</a></li>
+      <li><a href="quotation-report.html">Quotation Reports</a></li>
+      <li><a href="stock-report.html">Stock Reports</a></li>
+      <li><a href="customer-report.html">Customer Reports</a></li>
+      <li><a href="supplier-report.html">Supplier Reports</a></li>
+    </ul>
+  </div>
 
 </body>
 </html>

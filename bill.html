@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #000000, #0d47a1);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .bill-container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #111827;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    }
+    h1 {
+      text-align: center;
+      color: #00aaff;
+      margin-bottom: 10px;
+    }
+    .bill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    th {
+      background: #0d47a1;
+      color: #fff;
+    }
+    td {
+      background: #1e293b;
+      color: #ddd;
+    }
+    .summary {
+      text-align: right;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+    .summary p {
+      margin: 5px 0;
+    }
+    .summary .grand {
+      color: #00ffcc;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .thankyou {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 18px;
+      color: #00aaff;
+    }
+    .center {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      background: #00aaff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 8px;
+    }
+    button:hover {
+      background: #0288d1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bill-container">
+    <h1>🛒 Supermarket Bill</h1>
+    <div class="bill-header">
+      <p><b>Bill No:</b> 2025-001</p>
+      <p><b>Date:</b> 20-08-2025</p>
+      <p><b>Time:</b> 11:45 AM</p>
+    </div>
+
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>Rice 5kg</td>
+        <td>2</td>
+        <td>₹300</td>
+        <td>₹600</td>
+      </tr>
+      <tr>
+        <td>Milk 1L</td>
+        <td>5</td>
+        <td>₹50</td>
+        <td>₹250</td>
+      </tr>
+      <tr>
+        <td>Cooking Oil 1L</td>
+        <td>3</td>
+        <td>₹180</td>
+        <td>₹540</td>
+      </tr>
+      <tr>
+        <td>Wheat Flour 10kg</td>
+        <td>1</td>
+        <td>₹450</td>
+        <td>₹450</td>
+      </tr>
+    </table>
+
+    <div class="summary">
+      <p><b>Subtotal:</b> ₹1840</p>
+      <p><b>Discount:</b> ₹100</p>
+      <p class="grand">Grand Total: ₹1740</p>
+    </div>
+
+    <div class="thankyou">
+      🎉 Thank you for shopping with us! 🎉<br>
+      Please visit again.
+    </div>
+
+    <div class="center">
+      <button onclick="window.print()">🖨 PRINT BILL</button>
+      <button onclick="window.location.href='index.html'">🏠 GO TO HOME</button>    </div>
+  </div>
+</body>
+</html>

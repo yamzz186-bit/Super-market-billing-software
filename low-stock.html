@@ -19,6 +19,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
   }
   th, td {
     border: 1px solid #ddd;
@@ -38,7 +39,23 @@
   .low {
     background-color: #fff5cc;
   }
-  .normal {}
+  .back-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .back-btn button {
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .back-btn button:hover {
+    background-color: #333;
+  }
 </style>
 </head>
 <body>
@@ -70,5 +87,10 @@
     <tr class="low"><td>Mutton</td><td>Meat</td><td>45 Kg</td><td>50 Kg</td><td>Near Safety</td></tr>
     <tr><td>Soft Drinks</td><td>Beverages</td><td>200 Bottles</td><td>150</td><td>OK</td></tr>
   </table>
+
+  <!-- Back Button -->
+  <div class="back-btn">
+    <a href="stock.html"><button>⬅ Back to Stock</button></a>
+  </div>
 </body>
 </html>

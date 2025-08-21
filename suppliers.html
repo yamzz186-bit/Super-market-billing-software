@@ -35,12 +35,12 @@
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
-    .add-supplier {
+    .add-supplier, .back-stock {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
-    .add-supplier button {
+    button {
       background-color: #007acc;
       color: white;
       padding: 10px 20px;
@@ -49,8 +49,14 @@
       cursor: pointer;
       font-size: 16px;
     }
-    .add-supplier button:hover {
+    button:hover {
       background-color: #005f99;
+    }
+    .back-stock button {
+      background-color: #555;
+    }
+    .back-stock button:hover {
+      background-color: #333;
     }
   </style>
 </head>
@@ -89,6 +95,11 @@
     <tr><td>Evergreen Supplies</td><td>9456012345</td><td>evergreen@gmail.com</td><td>Nagercoil</td></tr>
     <tr><td>Speedy Suppliers</td><td>9345609876</td><td>speedy@gmail.com</td><td>Tuticorin</td></tr>
   </table>
+
+  <!-- Back to Stock Button -->
+  <div class="back-stock">
+    <a href="stock.html"><button>⬅ Back to Stock</button></a>
+  </div>
 
   <script>
     function openForm() {
